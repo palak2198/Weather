@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.weatherapp.R
 import com.example.weatherapp.data.model.WeatherConditionsItem
@@ -57,6 +58,11 @@ class WeatherActivity : BaseActivity<ActivityWeatherBinding>() {
         super.onCreate(savedInstanceState)
         subscribeObservers()
         checkIfLocationPermissionGranted()
+
+        WindowCompat.setDecorFitsSystemWindows(
+            window,
+            false
+        )
     }
 
     private fun checkIfLocationPermissionGranted() {
